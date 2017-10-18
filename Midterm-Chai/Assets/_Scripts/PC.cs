@@ -97,13 +97,13 @@ public class PC : MonoBehaviour {
 
 		if (!isGrounded) {
 
-			speed = 15f;
+			speed = 40f;
 
 		}
 
 		else {
 
-			speed = 20f;
+			speed = 80f;
 
 		}
 

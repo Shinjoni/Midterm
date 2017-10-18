@@ -1828,8 +1828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6bbf9ac090834846b2a6f6d6f3846e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
-  maxSpeed: 80
+  speed: 80
+  maxSpeed: 150
   jumpForce: 250
   isGrounded: 0
   isShooting: 0
