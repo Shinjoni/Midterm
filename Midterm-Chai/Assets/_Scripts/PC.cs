@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class PlayerController : MonoBehaviour {
-
+public class PC : MonoBehaviour {
 	public float speed;
 	public float maxSpeed;
 	public float jumpForce;
 
 	public bool isGrounded;
+	public bool isShooting;
+	public bool isDamaged;
+	public bool isAlive;
 
 	private Rigidbody2D rigiBody;
 	private Animator anim;
@@ -19,8 +21,9 @@ public class PlayerController : MonoBehaviour {
 	public AudioClip jumpSfx;
 	public AudioClip coinCollect;
 	public AudioClip damageSfx;
+	public AudioClip ebullet;
 
-	AudioSource audio;
+	public AudioSource audio;
 
 	public GameObject respawn;
 
@@ -52,14 +55,15 @@ public class PlayerController : MonoBehaviour {
 
 
 	}
-	
+
 
 	void Update () {
 
-		anim.SetBool ("IsGrounded", isGrounded); //setting grounded value in animation
+		anim.SetBool ("is Grounded", isGrounded); //setting grounded value in animation
+		anim.SetBool ("is Shooting" , isShooting); // setting shooting var
 		anim.SetFloat ("Speed", Mathf.Abs(rigiBody.velocity.x)); // setting speed value in animation; Mathf.Abs allows us to use the absolute value of the variable
-		anim.SetBool("IsAlive", deathCheck); //setting ISAlive animation parameter
-		anim.SetBool("IsDamaged", hurt); //setting IsDamaged animation parameter
+		anim.SetBool("isAlive", isAlive); //setting ISAlive animation parameter
+		anim.SetBool("is Damaged", isDamaged); //setting IsDamaged animation parameter
 
 
 		float h = Input.GetAxis ("Horizontal");
@@ -72,7 +76,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (isGrounded) {
-			 
+
 			rigiBody.AddForce ((Vector2.right * speed) * h); //moved player left and right
 
 
@@ -87,19 +91,19 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space) && isGrounded) {
 
 			rigiBody.AddForce (Vector2.up * jumpForce); // adding force vertically to jump
-			audio.PlayOneShot( jumpSfx, 1.0f); // plays jump sound
+			GetComponent<AudioSource>().PlayOneShot( jumpSfx, 1.0f); // plays jump sound
 
 		}
 
 		if (!isGrounded) {
 
-			speed = 150f;
+			speed = 15f;
 
 		}
 
 		else {
 
-			speed = 200f;
+			speed = 20f;
 
 		}
 
@@ -116,12 +120,11 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.Z)) {
-
-
-			Instantiate (bullet, bulletPoint.position, bulletPoint.rotation);
-
+						Instantiate (bullet, bulletPoint.position, bulletPoint.rotation);
+				}
+		if (isShooting == true) {
+			speed = 100f;
 		}
-
 
 	}
 
@@ -138,7 +141,7 @@ public class PlayerController : MonoBehaviour {
 
 			Destroy(col.gameObject);
 			gm.points += 1;
-			audio.PlayOneShot (coinCollect, 1.0f);
+			GetComponent<AudioSource>().PlayOneShot (coinCollect, 1.0f);
 
 
 		}
@@ -150,7 +153,7 @@ public class PlayerController : MonoBehaviour {
 			SceneManager.LoadScene ("Level 2");
 
 			Debug.Log ("SCENE CHANGED");
-				
+
 		}
 
 
@@ -165,7 +168,7 @@ public class PlayerController : MonoBehaviour {
 		easeVelocity.z = 0.0f;
 		easeVelocity.x *= 0.0f;
 
-		if (isGrounded) 
+		if (isGrounded || isShooting) 
 
 		{
 
@@ -189,11 +192,11 @@ public class PlayerController : MonoBehaviour {
 			rigiBody.velocity = new Vector2 ( -maxSpeed, 0f );
 
 		}
-	
+
 	}
 
 	void Death () {
-	
+
 		deathCheck = true;
 		Debug.Log ("Player is dead");
 		//reload scene or respawn
@@ -212,7 +215,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void Damage (int dmg) {
 
-		audio.PlayOneShot (damageSfx, 1.0f); //play damage sound effect
+		GetComponent<AudioSource>().PlayOneShot (damageSfx, 1.0f); //play damage sound effect
 		curHealth -= dmg; //take negative damage integer
 
 

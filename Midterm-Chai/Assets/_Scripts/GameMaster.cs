@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour {
 
-	private PlayerController player; //name of the player controller script
+	private PC player; //name of the player controller script
 
 	public int points;
 
