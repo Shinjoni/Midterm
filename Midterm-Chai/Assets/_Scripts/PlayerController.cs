@@ -93,13 +93,21 @@ public class PlayerController : MonoBehaviour {
 
 		if (!isGrounded) {
 
+<<<<<<< HEAD:Midterm-Chai/Assets/_Scripts/PlayerController.cs
 			speed = 150f;
+=======
+			speed = 15f;
+>>>>>>> parent of 434888c... Fixed Jumping:Midterm-Chai/Assets/_Scripts/PC.cs
 
 		}
 
 		else {
 
+<<<<<<< HEAD:Midterm-Chai/Assets/_Scripts/PlayerController.cs
 			speed = 200f;
+=======
+			speed = 20f;
+>>>>>>> parent of 434888c... Fixed Jumping:Midterm-Chai/Assets/_Scripts/PC.cs
 
 		}
 

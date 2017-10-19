@@ -1937,9 +1937,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d19ce91deb0f0248a523042e41892d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   speed: 30
   maxSpeed: 50
   jumpForce: 120
+=======
+  speed: 40
+  maxSpeed: 80
+  jumpForce: 250
+>>>>>>> parent of 434888c... Fixed Jumping
   isGrounded: 0
   jumpSfx: {fileID: 8300000, guid: 6a30373739a53114bb01512f2cf11d74, type: 3}
   coinCollect: {fileID: 8300000, guid: 267c58ab32815f04b8a6eb0e49a1a2b4, type: 3}
