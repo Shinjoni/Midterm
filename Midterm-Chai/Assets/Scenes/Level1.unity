@@ -1547,6 +1547,7 @@ Prefab:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &377947964
 GameObject:
 >>>>>>> parent of 6502fcf... Pushing Player
@@ -1817,6 +1818,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of b0d47eb... Merge branch 'master' of https://github.com/Shinjoni/Midterm
 --- !u!1 &491449082
 GameObject:
   m_ObjectHideFlags: 0
