@@ -12,12 +12,12 @@ public class HealthSytem : MonoBehaviour {
 
 	public Image heartsUI;
 
-	private PlayerController player;
+	private PC player;
 
 	// Use this for initialization
 	void Start () {
 
-		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PC> ();
 		
 	}
 	

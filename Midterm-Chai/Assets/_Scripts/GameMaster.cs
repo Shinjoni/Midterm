@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour {
 
-	private PlayerController player; //name of the player controller script
+	private PC player; //name of the player controller script
 
 	public int points;
 
@@ -14,7 +14,7 @@ public class GameMaster : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-	soulsText.text = ("Souls: " + points);
+	soulsText.text = ("Souls: 0" + points);
 
 	}
 }

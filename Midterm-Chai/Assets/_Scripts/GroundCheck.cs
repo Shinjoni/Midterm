@@ -5,12 +5,12 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
 
-    private PlayerController player; //gives access to the script
+    private PC player; //gives access to the script
 
     // Use this for initialization
     void Start()
     {
-        player = gameObject.GetComponentInParent<PlayerController>(); //player controller script is in the parent 
+        player = gameObject.GetComponentInParent<PC>(); //player controller script is in the parent 
     }
     void OnTriggerEnter2D(Collider2D col)
     {
